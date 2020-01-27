@@ -3,6 +3,9 @@
 " Place this file in your /home directory : /home/$USER/.vimrc
 " To reload changes run 'source ~/.vimrc'
 
+" Use I, J, K, L to move instead of arrow keys
+" and H to insert instead of I
+
 " Disable compatibility with VI
 set nocompatible
 

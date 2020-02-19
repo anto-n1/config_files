@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # Verify if file is readable and run it
 [ -r /etc/lsb-release ] && . /etc/lsb-release
@@ -9,4 +9,5 @@ if [ -z "$DISTRIB_DESCRIPTION" ] && [ -x /usr/bin/lsb_release ]; then
 	DISTRIB_DESCRIPTION=$(lsb_release -s -d)
 fi
 
-printf "Welcome to %s (%s %s %s)\n" "$DISTRIB_DESCRIPTION" "$(uname -o)" "$(uname -r)" "$(uname -m)"
+echo ""
+echo "Welcome to $DISTRIB_DESCRIPTION $(uname -o) $(uname -r) $(uname -m)\n"

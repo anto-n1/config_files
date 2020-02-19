@@ -7,3 +7,5 @@ for address in $(hostname -I)
 do
     echo "$address"
 done
+
+echo ""

@@ -1,3 +1,9 @@
 #!/bin/bash
 
-echo "Message d'informations"
+echo ""
+echo "***********************************************"
+echo "*                                             *"
+echo "*   Access forbidden to unauthorized users.   *"
+echo "*                                             *"
+echo "***********************************************"
+echo ""

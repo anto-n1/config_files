@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "IP addresses of this server are :"
+
+IFS=$'\ '
+for address in $(hostname -I)    
+do
+    echo "$address"
+done

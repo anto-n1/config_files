@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # Cancel motd modifications and return to origin state
+# Considering you have deployed your motd banner with the 'deploy_new_motd.sh' script
 
 # Verify script is executed by sudo user
 if [ "$EUID" -ne 0 ]

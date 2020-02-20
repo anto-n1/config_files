@@ -24,3 +24,4 @@ echo "Copy new motd scripts in /etc/update-motd.d"
 cp -r update-motd.d /etc/update-motd.d
 
 echo "Done."
+echo "You can get back to origin motd state by running ./back_old_motd.sh"

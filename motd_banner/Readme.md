@@ -12,7 +12,7 @@ Les fichiers sont fonctionnels et testés sous Debian.
 
 * **Manuel**
 
-Le répertoire **update-motd.d** est à placer dans le répertoire **/etc**.
+Le répertoire **update-motd.d** est à placer dans le répertoire **/etc**.  
 Le fichier **/etc/motd** est à supprimer, ou déplacer.  
 
 Effectuer l'opération inverse pour revenir à l'état d'origine.
@@ -20,7 +20,7 @@ Effectuer l'opération inverse pour revenir à l'état d'origine.
 * **Automatique**
 
 Exécuter les commandes suivantes pour cloner le repo, garder uniquement les fichiers nécessaires à motd.  
-Le script **deploy_new_motd.sh** permet de déployer les fichiers automatiquement.
+Le script **deploy_new_motd.sh** permet de déployer les fichiers automatiquement.  
 Le script **back_old_motd.sh** permet de revenir à l'état d'origine.
 
 ```
@@ -37,4 +37,5 @@ mv config_files/motd_banner /tmp/ && rm -rf config_files && mv /tmp/motd_banner 
 
 ### SSH
 
-La dernière ligne de la bannière montre le dernier accès SSH au serveur. Cette ligne peut être supprimée en passant les paramètres **PrintMotd** et **PrintLastLog**  à **no** dans le fichier **/etc/ssh/sshd_config**.
+La dernière ligne de la bannière montre le dernier accès SSH au serveur.  
+Cette ligne peut être supprimée en passant les paramètres **PrintMotd** et **PrintLastLog**  à **no** dans le fichier **/etc/ssh/sshd_config**.

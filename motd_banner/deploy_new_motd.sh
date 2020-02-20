@@ -20,3 +20,4 @@ fi
 echo "Copy new motd scripts in /etc/update-motd.d"
 cp -r update-motd.d /etc/update-motd.d
 
+echo "Done."

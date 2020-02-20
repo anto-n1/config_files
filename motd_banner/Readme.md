@@ -12,8 +12,8 @@ Les fichiers sont fonctionnels et testés sous Debian.
 
 * **Manuel**
 
-Le répertoire **update-motd.d** est à placer dans le répertoire **/etc**.  
-Le fichier **/etc/motd** est à supprimer, ou déplacer.  
+Le répertoire **update-motd.d** du repo est à placer dans le répertoire **/etc**.  
+Le fichier **/etc/motd** du serveur est à supprimer, ou déplacer.  
 
 Effectuer l'opération inverse pour revenir à l'état d'origine.
 

@@ -20,3 +20,5 @@ then
 	rm -rf /etc/update-motd.d
 	mv /etc/update-motd.d.bak /etc/update-motd.d
 fi
+
+echo "Done."

@@ -8,8 +8,11 @@ if [ "$EUID" -ne 0 ]
   exit 0
 fi
 
-echo "Move /etc/motd in /etc/motd.bak..."
-mv /etc/motd /etc/motd.bak
+if [ -f "/etc/motd" ];
+then
+	echo "Move /etc/motd in /etc/motd.bak..."
+	mv /etc/motd /etc/motd.bak
+fi
 
 if [ -d "/etc/update-motd.d" ];
 then

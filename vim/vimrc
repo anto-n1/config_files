@@ -33,3 +33,8 @@ set number
 
 " Enable color syntax
 syntax enable
+
+" Persistent undo
+set undofile
+" Create folder before
+set undodir=~/.vim/undodir

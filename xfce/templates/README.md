@@ -1,0 +1,1 @@
+Put these files in /home/$USER/Templates, then 

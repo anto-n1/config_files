@@ -1,1 +1,1 @@
-Put these files in /home/$USER/Templates, then 
+Put these files in /home/$USER/Templates, then you can create new files from Nautilus easily.

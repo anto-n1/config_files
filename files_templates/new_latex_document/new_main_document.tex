@@ -1,0 +1,314 @@
+% --------------------------------------------------------------------
+% RAPPORT
+%
+% Début d'écriture du document :
+% --------------------------------------------------------------------
+
+% --------------------------------------------------------------------
+% Nomenclature et règles d'écriture du document
+%
+% - Longueur max d'une ligne : 80 caractères
+% - Mettre des commentaires
+% - Include des différentes parties pour éviter taille immense de fichier
+% --------------------------------------------------------------------
+
+% --------------------------------------------------------------------
+% Compilation du document
+%
+% xelatex document
+% xelatex document
+% bibtex document
+% pdflatex document
+% pdflatex document
+%
+% Avex TeXworks sous Windows :
+% Utiliser la compilation avec Xelatex+MakeIndex+BibTeX
+%
+% Utilisation de pdflatex disponible en utilisant la police lmodern
+% --------------------------------------------------------------------
+
+% --------------------------------------------------------------------
+% Préambule
+% --------------------------------------------------------------------
+
+% Type du document
+\documentclass[a4paper,french,11pt]{report}
+
+% Encodage (permet de taper les accents sans balises dans le texte notamment)
+\usepackage[utf8]{inputenc}
+
+% Manières de la langue française pour LaTeX
+\usepackage[french]{babel}
+
+% Justification du texte
+\usepackage{microtype}
+
+% Insertion d'images et répertoire où les trouver
+\usepackage{graphicx}
+\graphicspath{{images/}}
+
+% Faire des listes à puce
+\usepackage{enumitem}
+
+% Faire des listes sans tirets/bulles alignées (page acteurs de ma formation)
+\usepackage{scrextend}
+
+% Modification des tailles de la marge
+\usepackage[left=2cm,right=2cm,top=2.7cm,bottom=2.7cm]{geometry}
+
+% Utiliser des légende pour les images et les tableaux
+\usepackage{caption}
+
+% Permet de placer les tables et figures
+\usepackage{float}
+
+% Ajouter des pages et/ou fichiers PDF externes
+\usepackage{pdfpages}
+
+% Permet de faire tourner les pages en paysage
+\usepackage{pdflscape}
+
+% Permet d'utiliser \lastpage pour afficher le numéro de la dernière page
+\usepackage{lastpage}
+
+% Ajouter un espace blanc (ligne blanche) entre les paragraphes
+% Pas besoin d'utiliser '\\' pour ajouter une ligne blanche
+\setlength{\parskip}{1em}
+
+% Taille de l'alinéa début de paragraphe
+% Même espacement que les sous-sous-titres
+\setlength{\parindent}{2.5em}
+
+% Gestion des espaces entre les lignes (interligne)
+%\renewcommand{\baselinestretch}{2}\normalsize
+
+% Pour les double quotes \enquote{mon texte}
+\usepackage{csquotes}
+
+% Gestion des liens dans le document
+\usepackage{hyperref}
+\hypersetup{
+    colorlinks=true, % Colorer les liens
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black, % Couleur des liens
+    urlcolor=black,
+    hyperfigures=true % Ajouter liens du sommaire vers les parties lors du clic
+}
+
+% Bibliographie
+\usepackage[
+    %backend=biber, % Choix de l'outil de traitement
+    backend=bibtex,
+    babel=hyphen, % Env linguistique dédié aux entrées en langues alternatives
+    backref=true, % Liens dans la bibliographie pour remonter dans le texte
+    backrefstyle=none, % Afficher toutes les utilisations de la référence
+    bibstyle=numeric, % Style pour les clés des références dans la bibliographie
+    citestyle=numeric, % Style pour les clés des références dans le texte
+    sorting=none % Bibliographie triée par ordre d'utilisation des références
+]{biblatex} % Support des bibliographies
+
+% Nom du fichier contenant les sources
+%\addbibresource{sources.bib}
+\bibliography{sources.bib}
+
+% Réaliser des annexes
+\usepackage[titletoc]{appendix}
+
+% --------------------------------------------------------------------
+% Police d'écriture
+% --------------------------------------------------------------------
+
+% Pour utiliser lmodern : compiler avec pdflatex et non xelatex
+%\usepackage{lmodern}
+
+% Utilisation de xelatex pour utiliser des polices classiques
+\usepackage{fontspec}
+\setmainfont{Carlito} % Linux
+%\setmainfont{Helvetica} % macOS
+%\setmainfont{Calibri} % Windows
+
+% --------------------------------------------------------------------
+% Définition des couleurs
+% --------------------------------------------------------------------
+
+% Ajouter la possibilité d'utiliser de la couleur pour le texte
+\usepackage{xcolor}
+
+\definecolor{gray75}{gray}{0.75}
+
+% --------------------------------------------------------------------
+% Personalisation des titres
+% --------------------------------------------------------------------
+
+\usepackage{titlesec}
+
+ % Personalisation des chapitres
+\titleformat{\chapter}
+[hang] % Type du chapitre (valeur par défaut)
+{\Huge\bfseries} % Taille et style du numéro du chapitre
+{\thechapter % Afficher le numéro du chapitre
+\hspace{0.3cm} % Espace horizontal entre numéro et séparateur
+\textcolor{gray75}{\textbar} % Séparateur entre numéro et titre : pipe
+\hspace{0.3cm}}{0cm} % Espace horizontal entre séparateur et chapitre
+{\Huge\bfseries} % Type et style du titre
+
+% Réduction de l'espace au dessus et en dessous des chapitres
+\titlespacing{\chapter}{0pt}{-30pt}{20pt}
+
+% --------------------------------------------------------------------
+% Personalisation des sous-titres
+% --------------------------------------------------------------------
+
+\titleformat{\section}
+[hang] % Type du chapitre (valeur par défaut)
+{\Large\bfseries} % Taille et style du numéro du chapitre
+{\thesection % Afficher le numéro du sous-titre
+\hspace{0.15cm} % Espace horizontal entre numéro et séparateur
+\textcolor{gray75}{-} % Séparateur entre numéro et titre : pipe
+\hspace{0.15cm}}{0cm} % Espace horizontal entre séparateur et chapitre
+{\Large\bfseries} % Type et style du titre
+
+\titlespacing{\section}{0em}{15pt}{15pt}
+
+% Utilisation des lettres majuscules pour classer les sous-titres
+\renewcommand*{\thesection}{\thechapter.\Alph{section}}
+
+% --------------------------------------------------------------------
+% Personalisation des sous-sous-titres
+% --------------------------------------------------------------------
+
+\titleformat{\subsection}
+[hang] % Type du chapitre (valeur par défaut)
+{\large\bfseries} % Taille et style du numéro du chapitre
+{\thesubsection % Afficher le numéro du sous-titre
+\hspace{0.20cm} % Espace horizontal entre numéro et séparateur
+\textcolor{gray75}{-} % Séparateur entre numéro et titre : pipe
+\hspace{0.15cm}}{0cm} % Espace horizontal entre séparateur et chapitre
+{\large\bfseries} % Type et style du titre
+
+\titlespacing{\subsection}{2.5em}{10pt}{10pt}
+
+% --------------------------------------------------------------------
+% Header et footer première page
+% --------------------------------------------------------------------
+
+\usepackage{fancyhdr}
+\fancypagestyle{first}{
+
+% Effacer les headers et footer par défaut
+\fancyhf{}
+
+% Suppression des lignes horizontales
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+% --------------------------------------------------------------------
+% Header et footer pages de titre et de chapitres
+% --------------------------------------------------------------------
+
+\fancypagestyle{plain}{
+
+% Effacer les headers et footer par défaut
+\fancyhf{}
+
+% Suppression des lignes horizontales
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+% --------------------------------------------------------------------
+% Header et footer pages de texte
+% --------------------------------------------------------------------
+
+\pagestyle{fancy}
+
+% Effacer les headers et footer par défaut
+\fancyhf{}
+
+\fancyhead[L]{Projet de fin d'études}
+% Ecrire uniquement les noms des chapitres sans le mot "chapter" avec \leftmark
+\renewcommand{\chaptermark}[1]{\markboth{#1}{#1}}
+% \thecapter avec des accolades pour respecter l'espace avant le tiret
+\fancyhead[R]{\thechapter{} - \leftmark}
+
+\fancyfoot[L]{NOM Prénom}
+\fancyfoot[R]{\thepage/\pageref{LastPage}} % Affichage du type 1/5
+
+% Lignes horizontales
+\renewcommand{\headrulewidth}{1pt}
+\renewcommand{\footrulewidth}{1pt}
+
+% --------------------------------------------------------------------
+% Header et footer supprimés pour les pages non souhaitées
+% --------------------------------------------------------------------
+
+\fancypagestyle{none}{
+
+% Effacer les headers et footer par défaut
+\fancyhf{}
+
+% Suppression des lignes horizontales
+\renewcommand{\headrulewidth}{0pt}
+\renewcommand{\footrulewidth}{0pt}
+}
+
+% --------------------------------------------------------------------
+% Création d'environnements
+% --------------------------------------------------------------------
+
+% Désactiver l'interligne de paragraphe défini avec \setlength{\parindent}
+\newenvironment{nospaceline}{
+    \setlength{\parskip}{1pt}
+}
+
+% Désactiver les alinea dans un environnement
+\newenvironment{noindentation}{
+    \setlength{\parindent}{0pt}
+}
+
+% --------------------------------------------------------------------
+% Début du rapport
+% --------------------------------------------------------------------
+
+\begin{document}
+
+% --------------------------------------------------------------------
+% Page de titre, table des matières, table des figures
+% --------------------------------------------------------------------
+
+% Page de titre
+\input{page_titre.tex}
+
+% Permet de désactiver temporairement l'interligne
+\begin{nospaceline}
+
+% Table des matières
+\tableofcontents
+
+% Table des figures
+%\listoffigures
+
+\end{nospaceline}
+
+% --------------------------------------------------------------------
+% Corps du rapport
+% --------------------------------------------------------------------
+
+% Include des différentes parties
+\input{fichier.tex}
+
+% --------------------------------------------------------------------
+% Sources
+% --------------------------------------------------------------------
+
+% Afficher la bibliographie avec comme titre Bibliographie et la mettre dans la
+% table des matières
+\printbibliography[heading=bibintoc, title={Bibliographie}]
+
+% --------------------------------------------------------------------
+% Fin du rapport
+% --------------------------------------------------------------------
+
+\end{document}

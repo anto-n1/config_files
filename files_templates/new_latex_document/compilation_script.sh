@@ -17,4 +17,4 @@ xelatex ${rapport_name}
 xelatex ${rapport_name}
 
 # Suppression des fichiers inutiles
-rm -f *.aux *.bbl *.toc *.log *.out *.run.xml *.bib *.blg
+rm -f *.aux *.bbl *.toc *.log *.out *.run.xml *.blg

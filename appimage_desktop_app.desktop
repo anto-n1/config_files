@@ -1,0 +1,14 @@
+# Use an AppImage application as all others on the desktop.
+# For example with myapp.AppImage, move it to ~/.local/share/applications/ and create ~/.local/share/applications/myapp.desktop, then add the following lines into it :
+# Don't forget to make the app executable with chmod +x myapp.AppImage
+
+[Desktop Entry]
+Name=MyApp
+Comment=Comment about my app
+Exec=/home/$USER/.local/share/applications/myapp.desktop.AppImage  # Replace with your .AppImage
+Terminal=false
+Type=Application
+Icon=/home/$USER/.local/share/applications/myapp.png # Possible to add an icon
+Categories=Office;TextEditor;Utility;
+Keywords=marktext;markdown;               # Add searchable keywords
+Actions=NewWindow;
